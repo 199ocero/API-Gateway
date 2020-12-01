@@ -22,6 +22,9 @@
     {
         return response($message, $code)->header('Content-Type','application/json');
     }
+    protected function error401($data){
+        return response()->json(['data' => $data, 'Message' => 'Unauthorized.']);
+    }
 }
 
 ?>

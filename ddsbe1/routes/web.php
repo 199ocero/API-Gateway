@@ -21,3 +21,8 @@ $router->post('/users', 'UserController@createUser');  // create new user record
 $router->get('/users/{id}', 'UserController@findUser'); // get user by id
 $router->put('/users/{id}', 'UserController@updateUser'); // update user record
 $router->delete('/users/{id}', 'UserController@delete'); // delete record
+
+//roles
+
+$router->get('/roles','RoleController@getRole'); //get all roles
+$router->get('/roles/{id}', 'RoleController@findRole'); // get role by id

@@ -4,20 +4,19 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Roles extends Model
     {
         
         public $timestamps = false;
         
         //name of the table
-        protected $table = 'users';
+        protected $table = 'roles';
         // column sa table
         protected $fillable = [
-            'username','password','roleid'
+            'name'
         ];
         
-        protected $primaryKey = 'id';
-        protected $hidden = ['password'];
+        protected $primaryKey = 'roleid';
     }
 
 ?>
