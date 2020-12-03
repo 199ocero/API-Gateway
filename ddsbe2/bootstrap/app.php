@@ -61,6 +61,10 @@ $app->singleton(
 
 $app->configure('app');
 
+$app->middleware([
+    App\Http\Middleware\AuthenticateAccess::class,
+    
+]);
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -81,6 +85,8 @@ $app->configure('app');
 // ]);
 
 /*
+
+
 |--------------------------------------------------------------------------
 | Register Service Providers
 |--------------------------------------------------------------------------

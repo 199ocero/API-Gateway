@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Model\User;
 use App\Traits\ApiResponser;
 use App\Http\Controllers\Response;
+use App\Model\Roles;
 
 Class UserController extends Controller {
     use ApiResponser;
@@ -24,9 +25,14 @@ Class UserController extends Controller {
         $rules = [
             'username' => 'required|max:50',
             'password' => 'required|max:50',
+            'roleid' => 'required|numeric|min:1|not_in:0',
         ];
 
         $this->validate($request, $rules);
+
+        //validate if there is role id
+
+        $role =Roles::findOrFail($request->roleid);
 
         $user = User::create($request->all());
 
@@ -44,9 +50,13 @@ Class UserController extends Controller {
         $rules = [
             'username' => 'max:20',
             'password' => 'max:20',
+            'roleid' => 'required|numeric|min:1|not_in:0',
         ];
 
         $this->validate($request, $rules);
+
+        //validate if there is role id
+        $role = Roles::findOrFail($request->roleid);
         $user = User::findOrFail($id);
 
         $user->fill($request->all());

@@ -31,6 +31,7 @@ Class UserController extends Controller {
         $this->validate($request, $rules);
 
         //validate if there is role id
+
         $role =Roles::findOrFail($request->roleid);
         $user = User::create($request->all());
 
