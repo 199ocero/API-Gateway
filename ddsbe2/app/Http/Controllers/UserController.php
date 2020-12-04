@@ -32,7 +32,7 @@ Class UserController extends Controller {
 
         //validate if there is role id
 
-        $role =Roles::findOrFail($request->roleid);
+        //$role =Roles::findOrFail($request->roleid);
 
         $user = User::create($request->all());
 

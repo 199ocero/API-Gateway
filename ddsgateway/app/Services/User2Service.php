@@ -18,27 +18,31 @@
         $this->secret =config('services.users2.secret');
     }
 
-    public function getUsers1(){
+    public function getUsers(){
         return $this->performRequest('GET', '/users');
     }
 
-    public function createUsers1($data)
+    public function createUsers($data)
     {
         return $this->performRequest('POST', '/users', $data);
     }
 
-    public function findUsers1($id){
+    public function findUsers($id){
         return $this->performRequest('GET', "/users/{$id}");
     }
 
-    public function updateUsers1($data,$id)
+    public function updateUsers($data,$id)
     {
         return $this->performRequest('PUT', "/users/{$id}", $data);
     }
 
-    public function deleteUsers1($id)
+    public function deleteUsers($id)
     {
         return $this->performRequest('DELETE', "/users/{$id}");
+    }
+    public function findRole($id)
+    {
+        return $this->performRequest('GET', "/roles/$id");
     }
 }
 

@@ -23,26 +23,26 @@ Class User2Controller extends Controller {
 
     public function getUsers()
     {
-        return $this->successResponse($this->user2Service->getUsers1()); 
+        return $this->successResponse($this->user2Service->getUsers()); 
     }
 
     public function createUser(Request $request)
     {
-        return $this->successResponse($this->user2Service->createUsers1($request->all()));
+        return $this->successResponse($this->user2Service->createUsers($request->all()));
     }
 
     public function findUser($id){
-        return $this->successResponse($this->user2Service->findUsers1($id));
+        return $this->successResponse($this->user2Service->findUsers($id));
     }
 
     public function updateUser(Request $request, $id)
     {
-        return $this->successResponse($this->user2Service->updateUsers1($request->all(),$id));
+        return $this->successResponse($this->user2Service->updateUsers($request->all(),$id));
     }
 
     public function deleteUser($id)
     {
-        return $this->successResponse($this->user2Service->deleteUsers1($id));
+        return $this->successResponse($this->user2Service->deleteUsers($id));
     }
 
 
