@@ -11,9 +11,9 @@
 |
 */
 
-// $router->get('/', function () use ($router) {
-//     return $router->app->version();
-// });
+$router->get('/', function () use ($router) {
+    return view('login');
+});
 
 $router->group(['middleware' => 'client.credentials'],function() use ($router){
     //routes for site 1

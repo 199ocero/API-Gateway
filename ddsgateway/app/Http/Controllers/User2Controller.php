@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
 use App\Services\User2Service;
+use App\Services\User1Service;
 
 Class User2Controller extends Controller {
     use ApiResponser;
@@ -12,13 +13,15 @@ Class User2Controller extends Controller {
      * @var User1Service
      */
     public $user2Service;
+    public $user1Service;
     /**
      * Create a new controller instance
      * @return void
      */
-    public function __construct(User2Service $user2Service)
+    public function __construct(User2Service $user2Service,User1Service $user1Service)
     {
         $this->user2Service = $user2Service;
+        $this->user1Service = $user1Service;
     }
 
     public function getUsers()
@@ -27,7 +30,13 @@ Class User2Controller extends Controller {
     }
 
     public function createUser(Request $request)
-    {
+    {   
+        if($request->roleid <=3){
+            $this->user1Service->findRole($request->roleid);
+        }
+        else{
+            $this->user2Service->findRole($request->roleid);
+        }
         return $this->successResponse($this->user2Service->createUsers($request->all()));
     }
 
